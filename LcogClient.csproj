@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{169277F4-654B-408C-B6D7-08E6890B6FB3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LcogClient</RootNamespace>
+    <AssemblyName>LcogClient</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>LcogClient.Program</StartupObject>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ApplicationIcon>lcog.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\salin-lcog-client-5243567\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DirectX.AudioVideoPlayback, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\Base.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Base.Designer.cs">
+      <DependentUpon>Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Components.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Components.Designer.cs">
+      <DependentUpon>Components.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CycleObjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CycleObjects.Designer.cs">
+      <DependentUpon>CycleObjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FactionDiplomacy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FactionDiplomacy.Designer.cs">
+      <DependentUpon>FactionDiplomacy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Message.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Message.Designer.cs">
+      <DependentUpon>Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MoveObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MoveObject.Designer.cs">
+      <DependentUpon>MoveObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Faction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Faction.Designer.cs">
+      <DependentUpon>Faction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Map.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Map.Designer.cs">
+      <DependentUpon>Map.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MapObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MapObject.Designer.cs">
+      <DependentUpon>MapObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OtherObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OtherObject.Designer.cs">
+      <DependentUpon>OtherObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OtherObjects.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\OtherObjects.Designer.cs">
+      <DependentUpon>OtherObjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base.Designer.cs">
+      <DependentUpon>Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Build.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Build.Designer.cs">
+      <DependentUpon>Build.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Diplomacy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Diplomacy.Designer.cs">
+      <DependentUpon>Diplomacy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Messages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Messages.Designer.cs">
+      <DependentUpon>Messages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Move.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Move.Designer.cs">
+      <DependentUpon>Move.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Orders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Orders.Designer.cs">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Play.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Play.Designer.cs">
+      <DependentUpon>Play.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Technology.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Technology.Designer.cs">
+      <DependentUpon>Technology.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VCR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VCR.Designer.cs">
+      <DependentUpon>VCR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VCRUniversal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VCRUniversal.Designer.cs">
+      <DependentUpon>VCRUniversal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Collections\Components.cs" />
+    <Compile Include="Model\Collections\Factions.cs" />
+    <Compile Include="Model\Collections\Orders.cs" />
+    <Compile Include="Model\Collections\Technologies.cs" />
+    <Compile Include="Model\Component.cs" />
+    <Compile Include="Model\Faction.cs" />
+    <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\LcogObject.cs" />
+    <Compile Include="Model\Map.cs" />
+    <Compile Include="Model\MapObject.cs" />
+    <Compile Include="Model\Message.cs" />
+    <Compile Include="Model\Orders\Build.cs" />
+    <Compile Include="Model\Orders\Colonise.cs" />
+    <Compile Include="Model\Orders\Diplomacy.cs" />
+    <Compile Include="Model\Orders\GetJim.cs" />
+    <Compile Include="Model\Orders\Intercept.cs" />
+    <Compile Include="Model\Orders\Move.cs" />
+    <Compile Include="Model\Orders\Order.cs" />
+    <Compile Include="Model\Orders\Rename.cs" />
+    <Compile Include="Model\Orders\Repair.cs" />
+    <Compile Include="Model\Orders\Research.cs" />
+    <Compile Include="Model\Orders\Upgrade.cs" />
+    <Compile Include="Model\Planet.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Ship.cs" />
+    <Compile Include="Model\Technology.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\Base.resx">
+      <DependentUpon>Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Components.resx">
+      <DependentUpon>Components.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CycleObjects.resx">
+      <DependentUpon>CycleObjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FactionDiplomacy.resx">
+      <DependentUpon>FactionDiplomacy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Message.resx">
+      <DependentUpon>Message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MoveObject.resx">
+      <DependentUpon>MoveObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Faction.resx">
+      <DependentUpon>Faction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Map.resx">
+      <DependentUpon>Map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\MapObject.resx">
+      <DependentUpon>MapObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OtherObject.resx">
+      <DependentUpon>OtherObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\OtherObjects.resx">
+      <DependentUpon>OtherObjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base.resx">
+      <DependentUpon>Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Build.resx">
+      <DependentUpon>Build.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Diplomacy.resx">
+      <DependentUpon>Diplomacy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Messages.resx">
+      <DependentUpon>Messages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Move.resx">
+      <DependentUpon>Move.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Orders.resx">
+      <DependentUpon>Orders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Play.resx">
+      <DependentUpon>Play.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Technology.resx">
+      <DependentUpon>Technology.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VCR.resx">
+      <DependentUpon>VCR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VCRUniversal.resx">
+      <DependentUpon>VCRUniversal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="README">
+      <SubType>Form</SubType>
+    </None>
+    <Compile Include="Utility\Lcog2D.cs" />
+    <Compile Include="Utility\LcogBrushes.cs" />
+    <Compile Include="Utility\LcogConfig.cs" />
+    <Compile Include="Utility\LcogException.cs" />
+    <Compile Include="Utility\LcogIO.cs" />
+    <Compile Include="Utility\LcogLogger.cs" />
+    <Compile Include="Utility\LcogPens.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lcog.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Resources\energy_icon.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\battleship32x32.png" />
+    <None Include="Resources\build.png" />
+    <None Include="Resources\cancel_icon.png" />
+    <None Include="Resources\cargo_icon.png" />
+    <None Include="Resources\client-logo.png" />
+    <None Include="Resources\clock_icon.png" />
+    <None Include="Resources\corvette32x32.png" />
+    <None Include="Resources\crew_icon.png" />
+    <None Include="Resources\destroyer32x32.png" />
+    <None Include="Resources\faction_background.png" />
+    <None Include="Resources\forward.png" />
+    <None Include="Resources\freighter32x32.png" />
+    <None Include="Resources\frigate32x32.png" />
+    <None Include="Resources\hostile_icon.png" />
+    <None Include="Resources\messages_icon.png" />
+    <None Include="Resources\neutral_icon.png" />
+    <None Include="Resources\other_object_background.png" />
+    <None Include="Resources\other_object_background_hover.png" />
+    <None Include="Resources\picture_background.png" />
+    <None Include="Resources\planet2_icon.png" />
+    <None Include="Resources\planet_icon.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\save_icon.png" />
+    <None Include="Resources\scout32x32.png" />
+    <None Include="Resources\ship2_icon.png" />
+    <None Include="Resources\ship_icon.png" />
+    <None Include="Resources\store_icon.png" />
+    <None Include="Resources\transfer_icon.png" />
+    <None Include="Resources\upload.png" />
+    <None Include="Resources\vcr_icon.png" />
+    <None Include="Resources\zoom_in_icon.png" />
+    <None Include="Resources\zoom_out_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documents\License.txt" />
+    <Content Include="lcog.ico" />
+    <None Include="Resources\background_other_highlight.png" />
+    <None Include="Resources\background_other.png" />
+    <None Include="Resources\background_message.png" />
+    <None Include="Resources\background_faction.png" />
+    <None Include="Resources\faction.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
