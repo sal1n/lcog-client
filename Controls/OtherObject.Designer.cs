@@ -90,9 +90,10 @@
             this.Controls.Add(this.labelFactionName);
             this.Controls.Add(this.labelObjectName);
             this.Controls.Add(this.pictureBox);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Margin = new System.Windows.Forms.Padding(0, 5, 5, 5);
             this.Name = "OtherObject";
             this.Size = new System.Drawing.Size(268, 70);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();

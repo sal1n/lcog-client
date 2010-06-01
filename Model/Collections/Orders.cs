@@ -14,15 +14,38 @@ namespace LcogClient.Model.Collections
 
         public void CancelBuild(MapObject obj)
         {
+            if (this.GetBuildOrder(obj) != null)
+            {
+                Build order = this.GetBuildOrder(obj);
+                Client.Instance.Player.Energy += order.Components.TotalCost;
+            }
             this.Remove(this.GetBuildOrder(obj));
+            if (this.GetUpgradeOrder(obj) != null)
+            {
+                Upgrade order = this.GetUpgradeOrder(obj);
+                Client.Instance.Player.Energy += order.Components.TotalCost;
+            }
             this.Remove(this.GetUpgradeOrder(obj));
         }
 
         public void AddBuildOrder(Build build)
         {
+            if (this.GetBuildOrder(build.MapObject) != null)
+            {
+                Build order = this.GetBuildOrder(build.MapObject);
+                Client.Instance.Player.Energy += order.Components.TotalCost;
+            }
             this.Remove(this.GetBuildOrder(build.MapObject));
+            if (this.GetUpgradeOrder(build.MapObject) != null)
+            {
+                Upgrade order = this.GetUpgradeOrder(build.MapObject);
+                Client.Instance.Player.Energy += order.Components.TotalCost;
+            }
             this.Remove(this.GetUpgradeOrder(build.MapObject));
+
             this.Add(build);
+
+            Client.Instance.Player.Energy -= build.Components.TotalCost;
         }
 
         public Build GetBuildOrder(MapObject obj)
@@ -56,7 +79,7 @@ namespace LcogClient.Model.Collections
             this.Add(colonise);
         }
 
-        public Colonise GetColoniseOrder(Ship ship)
+        public Colonise GetColoniseOrder(MapObject ship)
         {
             foreach (Order order in this)
             {

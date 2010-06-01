@@ -1,7 +1,7 @@
-﻿======================
+﻿===============================================================================
 ===   LcogClient   ===
-======================
-**********************
+===============================================================================
+
 Being set on the idea
 Of getting to Atlantis,
 You have discovered of course
@@ -9,22 +9,23 @@ Only the Ship of Fools is
 Making the voyage this year..
 
 - WH Auden, 'Atlantis'
-***********************
+-----------------------------
 
-Lost Colonies Of Guernsey [lcog] is a Play By EMail [pbem] similar to VGA Planets game written in Ruby by James Rowe.  
+Lost Colonies Of Guernsey [lcog] is a Play By EMail [pbem] similar to VGA 
+Planets game written in Ruby by James Rowe.  
 
-This is a client for the game written in C# using WinForms for the .NET 2.0+ framework and the Mono 2.0+ framework.
+This is a client for the game written in C# using WinForms for the .NET 3.5+ 
+framework and the Mono 2.0+ framework.
 
-Known Issues / todo
-------------
-1.  Map zoom function currently disabled.
+Implements entire 2.0 ruleset (game host as at April 2010).
+
+@todo
+1.  Re-implement zoom function on star map.
 2.  Drawing lines that span both axis currently only works for 2 out of 4 states.
-3.  Requires files in same directory as the executable.
-4.  Historic information not persisted.
-5.  Group and order ships as fleets.
-6.  Maintain state, so orders lost when client closed.  Need to reload the order xml file.
+3.  Persist historic information.
+4.  Group and order ships as fleets.
+5.  Maintain state, so orders lost when client closed.  Need to reload the order xml file.
 
-
-============================
+--------------------------------------------
 Steve Andrews [http://salin.org/lcog-client]
-16/03/2010
+18/05/2010

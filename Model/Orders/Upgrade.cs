@@ -36,6 +36,7 @@ namespace LcogClient.Model.Orders
         /// </summary>
         public Components Components { get; set; }
 
+        public bool IsPlanet { get; set; }
         #endregion
 
         #region Constructors
@@ -50,11 +51,12 @@ namespace LcogClient.Model.Orders
         /// <summary>
         /// Constructor
         /// </summary>
-        public Upgrade(MapObject factory, MapObject target, Components components)
+        public Upgrade(MapObject factory, MapObject target, Components components, bool isPlanet)
         {
             this.Factory = factory;
             this.Target = target;
             this.Components = components;
+            this.IsPlanet = isPlanet;
         }
         #endregion
 
@@ -77,7 +79,7 @@ namespace LcogClient.Model.Orders
             {
                 xml += "<ship>" + this.Factory.ID + "</ship>\n";
             }
-            if (this.Target.GetType() == typeof(Planet))
+            if (this.IsPlanet)
             {
                 xml += "<target_planet>" + this.Target.ID + "</target_planet>\n";
             }

@@ -29,17 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.buttonCancelColonise = new LcogClient.Controls.Button();
-            this.labelColonise = new System.Windows.Forms.Label();
-            this.buttonColonise = new LcogClient.Controls.Button();
-            this.buttonCancelMove = new LcogClient.Controls.Button();
-            this.buttonCancelBuild = new LcogClient.Controls.Button();
-            this.labelBuild = new System.Windows.Forms.Label();
-            this.labelMove = new System.Windows.Forms.Label();
+            this.componentsControl = new LcogClient.Controls.Components();
+            this.buttonOthers = new LcogClient.Controls.Button();
             this.labelEnergy = new System.Windows.Forms.Label();
             this.pictureBoxEnergy = new System.Windows.Forms.PictureBox();
-            this.buttonBuild = new LcogClient.Controls.Button();
-            this.componentsControl = new LcogClient.Controls.Components();
             this.labelFactionName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelObjectID = new System.Windows.Forms.Label();
@@ -52,17 +45,10 @@
             // 
             // groupBox
             // 
-            this.groupBox.Controls.Add(this.buttonCancelColonise);
-            this.groupBox.Controls.Add(this.labelColonise);
-            this.groupBox.Controls.Add(this.buttonColonise);
-            this.groupBox.Controls.Add(this.buttonCancelMove);
-            this.groupBox.Controls.Add(this.buttonCancelBuild);
-            this.groupBox.Controls.Add(this.labelBuild);
-            this.groupBox.Controls.Add(this.labelMove);
+            this.groupBox.Controls.Add(this.componentsControl);
+            this.groupBox.Controls.Add(this.buttonOthers);
             this.groupBox.Controls.Add(this.labelEnergy);
             this.groupBox.Controls.Add(this.pictureBoxEnergy);
-            this.groupBox.Controls.Add(this.buttonBuild);
-            this.groupBox.Controls.Add(this.componentsControl);
             this.groupBox.Controls.Add(this.labelFactionName);
             this.groupBox.Controls.Add(this.panel1);
             this.groupBox.Controls.Add(this.labelObjectID);
@@ -72,99 +58,33 @@
             this.groupBox.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox.Name = "groupBox";
             this.groupBox.Padding = new System.Windows.Forms.Padding(5);
-            this.groupBox.Size = new System.Drawing.Size(300, 426);
+            this.groupBox.Size = new System.Drawing.Size(300, 538);
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             // 
-            // buttonCancelColonise
+            // componentsControl
             // 
-            this.buttonCancelColonise.BaseColor = System.Drawing.SystemColors.Control;
-            this.buttonCancelColonise.HighlightColor = System.Drawing.Color.Khaki;
-            this.buttonCancelColonise.Image = global::LcogClient.Properties.Resources.cancel;
-            this.buttonCancelColonise.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCancelColonise.Location = new System.Drawing.Point(252, 332);
-            this.buttonCancelColonise.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonCancelColonise.Name = "buttonCancelColonise";
-            this.buttonCancelColonise.Size = new System.Drawing.Size(38, 38);
-            this.buttonCancelColonise.TabIndex = 21;
-            this.buttonCancelColonise.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCancelColonise.UseVisualStyleBackColor = false;
-            this.buttonCancelColonise.Click += new System.EventHandler(this.buttonCancelColonise_Click);
+            this.componentsControl.BuildScreen = false;
+            this.componentsControl.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.componentsControl.Location = new System.Drawing.Point(10, 143);
+            this.componentsControl.MapObject = null;
+            this.componentsControl.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.componentsControl.Name = "componentsControl";
+            this.componentsControl.Size = new System.Drawing.Size(282, 385);
+            this.componentsControl.TabIndex = 18;
             // 
-            // labelColonise
+            // buttonOthers
             // 
-            this.labelColonise.Location = new System.Drawing.Point(101, 335);
-            this.labelColonise.Margin = new System.Windows.Forms.Padding(5);
-            this.labelColonise.Name = "labelColonise";
-            this.labelColonise.Size = new System.Drawing.Size(151, 32);
-            this.labelColonise.TabIndex = 20;
-            this.labelColonise.Text = "Colonising Planet";
-            this.labelColonise.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttonColonise
-            // 
-            this.buttonColonise.BaseColor = System.Drawing.SystemColors.Control;
-            this.buttonColonise.HighlightColor = System.Drawing.Color.Khaki;
-            this.buttonColonise.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonColonise.Location = new System.Drawing.Point(13, 332);
-            this.buttonColonise.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonColonise.Name = "buttonColonise";
-            this.buttonColonise.Size = new System.Drawing.Size(78, 38);
-            this.buttonColonise.TabIndex = 19;
-            this.buttonColonise.Text = "Colonise";
-            this.buttonColonise.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonColonise.UseVisualStyleBackColor = false;
-            this.buttonColonise.Click += new System.EventHandler(this.buttonColonise_Click);
-            // 
-            // buttonCancelMove
-            // 
-            this.buttonCancelMove.BaseColor = System.Drawing.SystemColors.Control;
-            this.buttonCancelMove.HighlightColor = System.Drawing.Color.Khaki;
-            this.buttonCancelMove.Image = global::LcogClient.Properties.Resources.cancel;
-            this.buttonCancelMove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCancelMove.Location = new System.Drawing.Point(252, 380);
-            this.buttonCancelMove.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonCancelMove.Name = "buttonCancelMove";
-            this.buttonCancelMove.Size = new System.Drawing.Size(38, 38);
-            this.buttonCancelMove.TabIndex = 18;
-            this.buttonCancelMove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCancelMove.UseVisualStyleBackColor = false;
-            this.buttonCancelMove.Click += new System.EventHandler(this.buttonCancelMove_Click);
-            // 
-            // buttonCancelBuild
-            // 
-            this.buttonCancelBuild.BaseColor = System.Drawing.SystemColors.Control;
-            this.buttonCancelBuild.HighlightColor = System.Drawing.Color.Khaki;
-            this.buttonCancelBuild.Image = global::LcogClient.Properties.Resources.cancel;
-            this.buttonCancelBuild.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCancelBuild.Location = new System.Drawing.Point(252, 284);
-            this.buttonCancelBuild.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonCancelBuild.Name = "buttonCancelBuild";
-            this.buttonCancelBuild.Size = new System.Drawing.Size(38, 38);
-            this.buttonCancelBuild.TabIndex = 17;
-            this.buttonCancelBuild.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCancelBuild.UseVisualStyleBackColor = false;
-            this.buttonCancelBuild.Click += new System.EventHandler(this.buttonCancelBuild_Click);
-            // 
-            // labelBuild
-            // 
-            this.labelBuild.Location = new System.Drawing.Point(101, 287);
-            this.labelBuild.Margin = new System.Windows.Forms.Padding(5);
-            this.labelBuild.Name = "labelBuild";
-            this.labelBuild.Size = new System.Drawing.Size(151, 32);
-            this.labelBuild.TabIndex = 16;
-            this.labelBuild.Text = "Building / Upgrading";
-            this.labelBuild.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelMove
-            // 
-            this.labelMove.Location = new System.Drawing.Point(10, 380);
-            this.labelMove.Margin = new System.Windows.Forms.Padding(5);
-            this.labelMove.Name = "labelMove";
-            this.labelMove.Size = new System.Drawing.Size(242, 38);
-            this.labelMove.TabIndex = 15;
-            this.labelMove.Text = "Moving to Xanadu (321, 321)";
-            this.labelMove.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonOthers.BaseColor = System.Drawing.SystemColors.Control;
+            this.buttonOthers.HighlightColor = System.Drawing.Color.Khaki;
+            this.buttonOthers.Location = new System.Drawing.Point(10, 115);
+            this.buttonOthers.Margin = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.buttonOthers.Name = "buttonOthers";
+            this.buttonOthers.Size = new System.Drawing.Size(282, 23);
+            this.buttonOthers.TabIndex = 17;
+            this.buttonOthers.Text = "4 others at this location - View";
+            this.buttonOthers.UseVisualStyleBackColor = false;
+            this.buttonOthers.Click += new System.EventHandler(this.buttonOthers_Click);
             // 
             // labelEnergy
             // 
@@ -184,33 +104,6 @@
             this.pictureBoxEnergy.Size = new System.Drawing.Size(32, 32);
             this.pictureBoxEnergy.TabIndex = 13;
             this.pictureBoxEnergy.TabStop = false;
-            // 
-            // buttonBuild
-            // 
-            this.buttonBuild.BaseColor = System.Drawing.SystemColors.Control;
-            this.buttonBuild.HighlightColor = System.Drawing.Color.Khaki;
-            this.buttonBuild.Image = global::LcogClient.Properties.Resources.build;
-            this.buttonBuild.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBuild.Location = new System.Drawing.Point(13, 284);
-            this.buttonBuild.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonBuild.Name = "buttonBuild";
-            this.buttonBuild.Size = new System.Drawing.Size(78, 38);
-            this.buttonBuild.TabIndex = 12;
-            this.buttonBuild.Text = "Build";
-            this.buttonBuild.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonBuild.UseVisualStyleBackColor = false;
-            this.buttonBuild.Click += new System.EventHandler(this.buttonBuild_Click);
-            // 
-            // componentsControl
-            // 
-            this.componentsControl.BuildScreen = false;
-            this.componentsControl.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.componentsControl.Location = new System.Drawing.Point(25, 117);
-            this.componentsControl.MapObject = null;
-            this.componentsControl.Margin = new System.Windows.Forms.Padding(5);
-            this.componentsControl.Name = "componentsControl";
-            this.componentsControl.Size = new System.Drawing.Size(250, 157);
-            this.componentsControl.TabIndex = 5;
             // 
             // labelFactionName
             // 
@@ -262,8 +155,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "MapObject";
-            this.Size = new System.Drawing.Size(300, 426);
+            this.Size = new System.Drawing.Size(300, 538);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEnergy)).EndInit();
@@ -280,16 +175,9 @@
         private System.Windows.Forms.Label labelObjectID;
         private System.Windows.Forms.TextBox textBoxObjectName;
         private System.Windows.Forms.PictureBox pictureBoxObject;
-        private Components componentsControl;
         private System.Windows.Forms.PictureBox pictureBoxEnergy;
-        private Button buttonBuild;
         private System.Windows.Forms.Label labelEnergy;
-        private System.Windows.Forms.Label labelMove;
-        private Button buttonCancelBuild;
-        private System.Windows.Forms.Label labelBuild;
-        private Button buttonCancelMove;
-        private Button buttonCancelColonise;
-        private System.Windows.Forms.Label labelColonise;
-        private Button buttonColonise;
+        private Button buttonOthers;
+        private Components componentsControl;
     }
 }

@@ -102,8 +102,8 @@ namespace LcogClient.Utility
         {
             Client.Instance.Player = new Player();
             Client.Instance.Factions = new Factions();
-            Client.Instance.Selected = null;
-            Client.Instance.Target = null;
+            //Client.Instance.Selected = null;
+            //Client.Instance.Target = null;
 
             XmlDocument xml = LcogIO.LoadXml(fileName);
 
@@ -128,7 +128,14 @@ namespace LcogClient.Utility
                 Technology tech = new Technology();
                 tech.Level = int.Parse(node.Attributes["level"].Value);
                 tech.Name = node.Attributes["name"].Value;
-                tech.Research = int.Parse(node.Attributes["research"].Value);
+                try
+                {
+                    tech.Research = int.Parse(node.Attributes["research"].Value);
+                }
+                catch
+                {
+                    tech.Research = 0;
+                }
                 Client.Instance.Player.Tech.Add(tech);
             }
 
@@ -211,12 +218,11 @@ namespace LcogClient.Utility
                 }
 
                 ship.HullClass = node.Attributes["class"].Value;
+                ship.Hull = int.Parse(node.Attributes["hull"].Value);
 
                 //ship.Image = LcogIO.GetHullImage(ship.Hull.Name);
 
                 ship.Mass = int.Parse(node.Attributes["mass"].Value);
-
-                ship.MaxMove = int.Parse(node.Attributes["maxmove"].Value);
 
                 foreach (XmlNode component in node.SelectNodes("slot"))
                 {
@@ -225,6 +231,7 @@ namespace LcogClient.Utility
 
                 if (ship.Faction == Client.Instance.Player.Faction)
                 {
+                    ship.MaxMove = int.Parse(node.Attributes["maxmove"].Value);
                     Client.Instance.Player.Ships.Add(ship);
                 }
                 Client.Instance.Map.Add(ship);
@@ -337,7 +344,7 @@ namespace LcogClient.Utility
 
         public static void UnzipReport()
         {
-            string report = "Report" + LcogConfig.FactionID + ".zip";
+            string report = "report" + LcogConfig.FactionID + ".zip";
             using (ZipInputStream s = new ZipInputStream(File.OpenRead(report)))
             {
 

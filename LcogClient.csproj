@@ -52,7 +52,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\salin-lcog-client-5243567\bin\Debug\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.DirectX.AudioVideoPlayback, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -80,11 +79,23 @@
     <Compile Include="Controls\Components.Designer.cs">
       <DependentUpon>Components.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\GenericComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\GenericComponent.Designer.cs">
+      <DependentUpon>GenericComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CycleObjects.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\CycleObjects.Designer.cs">
       <DependentUpon>CycleObjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EngineComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EngineComponent.Designer.cs">
+      <DependentUpon>EngineComponent.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\FactionDiplomacy.cs">
       <SubType>UserControl</SubType>
@@ -92,17 +103,23 @@
     <Compile Include="Controls\FactionDiplomacy.Designer.cs">
       <DependentUpon>FactionDiplomacy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\FactoryComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\FactoryComponent.Designer.cs">
+      <DependentUpon>FactoryComponent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LandingCraftComponent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LandingCraftComponent.Designer.cs">
+      <DependentUpon>LandingCraftComponent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Message.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\Message.Designer.cs">
       <DependentUpon>Message.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\MoveObject.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\MoveObject.Designer.cs">
-      <DependentUpon>MoveObject.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\Faction.cs">
       <SubType>UserControl</SubType>
@@ -127,12 +144,6 @@
     </Compile>
     <Compile Include="Controls\OtherObject.Designer.cs">
       <DependentUpon>OtherObject.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\OtherObjects.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\OtherObjects.Designer.cs">
-      <DependentUpon>OtherObjects.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Base.cs">
       <SubType>Form</SubType>
@@ -164,12 +175,6 @@
     <Compile Include="Forms\Messages.Designer.cs">
       <DependentUpon>Messages.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Move.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Move.Designer.cs">
-      <DependentUpon>Move.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Orders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,18 +187,24 @@
     <Compile Include="Forms\Play.Designer.cs">
       <DependentUpon>Play.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Select.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Select.Designer.cs">
+      <DependentUpon>Select.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Technology.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Technology.Designer.cs">
       <DependentUpon>Technology.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\VCR.cs">
+    <None Include="Forms\VCR.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\VCR.Designer.cs">
+    </None>
+    <None Include="Forms\VCR.Designer.cs">
       <DependentUpon>VCR.cs</DependentUpon>
-    </Compile>
+    </None>
     <Compile Include="Forms\VCRUniversal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,17 +245,26 @@
     <EmbeddedResource Include="Controls\Components.resx">
       <DependentUpon>Components.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\GenericComponent.resx">
+      <DependentUpon>GenericComponent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\CycleObjects.resx">
       <DependentUpon>CycleObjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EngineComponent.resx">
+      <DependentUpon>EngineComponent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\FactionDiplomacy.resx">
       <DependentUpon>FactionDiplomacy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\FactoryComponent.resx">
+      <DependentUpon>FactoryComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LandingCraftComponent.resx">
+      <DependentUpon>LandingCraftComponent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\Message.resx">
       <DependentUpon>Message.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\MoveObject.resx">
-      <DependentUpon>MoveObject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Faction.resx">
       <DependentUpon>Faction.cs</DependentUpon>
@@ -257,9 +277,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\OtherObject.resx">
       <DependentUpon>OtherObject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\OtherObjects.resx">
-      <DependentUpon>OtherObjects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Base.resx">
       <DependentUpon>Base.cs</DependentUpon>
@@ -276,14 +293,14 @@
     <EmbeddedResource Include="Forms\Messages.resx">
       <DependentUpon>Messages.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Move.resx">
-      <DependentUpon>Move.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Play.resx">
       <DependentUpon>Play.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Select.resx">
+      <DependentUpon>Select.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Technology.resx">
       <DependentUpon>Technology.cs</DependentUpon>
@@ -318,8 +335,10 @@
     </None>
     <Compile Include="Utility\Lcog2D.cs" />
     <Compile Include="Utility\LcogBrushes.cs" />
+    <Compile Include="Utility\LcogComponentFactory.cs" />
     <Compile Include="Utility\LcogConfig.cs" />
     <Compile Include="Utility\LcogException.cs" />
+    <Compile Include="Utility\LcogImage.cs" />
     <Compile Include="Utility\LcogIO.cs" />
     <Compile Include="Utility\LcogLogger.cs" />
     <Compile Include="Utility\LcogPens.cs" />
@@ -400,8 +419,38 @@
     <None Include="Resources\zoom_out_icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dependencies\ICSharpCode.SharpZipLib.dll" />
     <Content Include="Documents\License.txt" />
     <Content Include="lcog.ico" />
+    <None Include="Resources\torpedo_16x16.png" />
+    <None Include="Resources\steel_plate_16x16.png" />
+    <None Include="Resources\shield_16x16.png" />
+    <None Include="Resources\plasteel_16x16.png" />
+    <None Include="Resources\plasma_torpedo_16x16.png" />
+    <None Include="Resources\long_range_beam_16x16.png" />
+    <None Include="Resources\light_bulb_16x16.png" />
+    <None Include="Resources\ion_drive_16x16.png" />
+    <None Include="Resources\enhanced_shield_16x16.png" />
+    <None Include="Resources\enhanced_beam_16x16.png" />
+    <None Include="Resources\engine_16x16.png" />
+    <None Include="Resources\blaster_16x16.png" />
+    <None Include="Resources\beam_16x16.png" />
+    <None Include="Resources\plasma_torpedo.png" />
+    <None Include="Resources\torpedo.png" />
+    <None Include="Resources\ion_drive.png" />
+    <None Include="Resources\enhanced_shield.png" />
+    <None Include="Resources\shield.png" />
+    <None Include="Resources\blaster.png" />
+    <None Include="Resources\long_range_beam.png" />
+    <None Include="Resources\plasteel.png" />
+    <None Include="Resources\steel_plate.png" />
+    <None Include="Resources\enhanced_beam.png" />
+    <None Include="Resources\beam.png" />
+    <None Include="Resources\engine.png" />
+    <None Include="Resources\light_bulb.png" />
+    <None Include="Resources\landing_craft.png" />
+    <None Include="Resources\factory.png" />
+    <None Include="Resources\star.png" />
     <None Include="Resources\background_other_highlight.png" />
     <None Include="Resources\background_other.png" />
     <None Include="Resources\background_message.png" />

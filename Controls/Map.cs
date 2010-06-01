@@ -182,8 +182,21 @@ namespace LcogClient.Controls
                         }
                         else if (near.Count > 1)
                         {
-                            Move form = new Move(near);
+                            Forms.Select form = new Select("Move or Intercept", near);
                             form.ShowDialog();
+                            if (Client.Instance.Target.GetType() == typeof(Planet))
+                            {
+                                Ship s = (Ship)Client.Instance.Selected;
+                                Planet target = (Planet)Client.Instance.Target;
+                                s.Move(target.Location);
+                            }
+                            else if (Client.Instance.Target.GetType() == typeof(Ship))
+                            {
+                                Ship s = (Ship)Client.Instance.Selected;
+                                Ship target = (Ship)Client.Instance.Target;
+                                s.Intercept(target);
+                            }
+                            Client.Instance.UpdateView();
                         }
                     }
                 }
@@ -240,6 +253,7 @@ namespace LcogClient.Controls
         public override void UpdateView(object source, EventArgs e)
         {
             this.image = Client.Instance.Map.Image;
+            this.CenterOnPoint(Client.Instance.Selected.Location);
             this.Invalidate();
         }
     }

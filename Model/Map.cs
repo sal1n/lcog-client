@@ -32,6 +32,7 @@ namespace LcogClient.Model
 
                 Graphics g = Graphics.FromImage(bm);
 
+                //g.DrawRectangle(Pens.Yellow, 0, 0, this.Size, this.Size);
                 this.Draw(g);
 
                 // dispose of the resource

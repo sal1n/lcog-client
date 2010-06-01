@@ -31,10 +31,6 @@ namespace LcogClient.Model
         /// </summary>
         public string HullClass { get; set; }
         /// <summary>
-        /// How far can this ship move in a single turn.
-        /// </summary>
-        public int MaxMove { get; set; }
-        /// <summary>
         /// Hull capacity (for component size)
         /// </summary>
         public int Hull { get; set; }
@@ -67,17 +63,6 @@ namespace LcogClient.Model
             Intercept order = new Intercept(this, ship);
             this.Waypoint = ship.Location;
             Client.Instance.Player.Orders.AddInterceptOrder(order);
-        }
-        public bool HasColoniseOrder()
-        {
-            if (Client.Instance.Player.Orders.GetColoniseOrder(this) != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
         #endregion
 
@@ -130,18 +115,5 @@ namespace LcogClient.Model
             }
         }
         #endregion
-
-        public Ship Clone()
-        {
-            Ship ship = new Ship();
-            ship.Name = this.Name;
-            ship.ID = this.ID;
-            ship.Image = this.Image;
-            foreach (Component component in this.Components)
-            {
-                ship.Components.Add(component);
-            }
-            return ship;
-        }
     }
 }

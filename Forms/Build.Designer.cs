@@ -36,8 +36,7 @@
             this.labelObjectID = new System.Windows.Forms.Label();
             this.textBoxObjectName = new System.Windows.Forms.TextBox();
             this.pictureBoxObject = new System.Windows.Forms.PictureBox();
-            this.buttonUpgradePlanet = new LcogClient.Controls.Button();
-            this.buttonUpgradeShip = new LcogClient.Controls.Button();
+            this.buttonUpgrade = new LcogClient.Controls.Button();
             this.buttonBuildNewShip = new LcogClient.Controls.Button();
             this.groupBoxComponents = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -59,7 +58,7 @@
             // 
             this.labelFactionEnergy.Image = global::LcogClient.Properties.Resources.energy;
             this.labelFactionEnergy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelFactionEnergy.Location = new System.Drawing.Point(536, 354);
+            this.labelFactionEnergy.Location = new System.Drawing.Point(536, 510);
             this.labelFactionEnergy.Name = "labelFactionEnergy";
             this.labelFactionEnergy.Size = new System.Drawing.Size(73, 38);
             this.labelFactionEnergy.TabIndex = 18;
@@ -70,7 +69,7 @@
             // 
             this.labelTotalCost.Image = global::LcogClient.Properties.Resources.energy;
             this.labelTotalCost.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelTotalCost.Location = new System.Drawing.Point(704, 354);
+            this.labelTotalCost.Location = new System.Drawing.Point(702, 510);
             this.labelTotalCost.Name = "labelTotalCost";
             this.labelTotalCost.Size = new System.Drawing.Size(135, 38);
             this.labelTotalCost.TabIndex = 17;
@@ -83,7 +82,7 @@
             this.buttonBuild.HighlightColor = System.Drawing.Color.Khaki;
             this.buttonBuild.Image = global::LcogClient.Properties.Resources.build;
             this.buttonBuild.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBuild.Location = new System.Drawing.Point(761, 402);
+            this.buttonBuild.Location = new System.Drawing.Point(761, 553);
             this.buttonBuild.Margin = new System.Windows.Forms.Padding(5);
             this.buttonBuild.Name = "buttonBuild";
             this.buttonBuild.Size = new System.Drawing.Size(78, 38);
@@ -99,22 +98,22 @@
             this.groupBoxFactory.Controls.Add(this.labelObjectID);
             this.groupBoxFactory.Controls.Add(this.textBoxObjectName);
             this.groupBoxFactory.Controls.Add(this.pictureBoxObject);
-            this.groupBoxFactory.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxFactory.Location = new System.Drawing.Point(12, 49);
             this.groupBoxFactory.Name = "groupBoxFactory";
-            this.groupBoxFactory.Size = new System.Drawing.Size(300, 286);
+            this.groupBoxFactory.Size = new System.Drawing.Size(298, 447);
             this.groupBoxFactory.TabIndex = 21;
             this.groupBoxFactory.TabStop = false;
             this.groupBoxFactory.Text = "Factory";
             // 
             // componentsFactory
             // 
-            this.componentsFactory.BuildScreen = false;
+            this.componentsFactory.BuildScreen = true;
             this.componentsFactory.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.componentsFactory.Location = new System.Drawing.Point(25, 60);
+            this.componentsFactory.Location = new System.Drawing.Point(7, 53);
             this.componentsFactory.MapObject = null;
-            this.componentsFactory.Margin = new System.Windows.Forms.Padding(5);
+            this.componentsFactory.Margin = new System.Windows.Forms.Padding(0);
             this.componentsFactory.Name = "componentsFactory";
-            this.componentsFactory.Size = new System.Drawing.Size(250, 205);
+            this.componentsFactory.Size = new System.Drawing.Size(282, 385);
             this.componentsFactory.TabIndex = 6;
             // 
             // labelObjectID
@@ -145,45 +144,30 @@
             this.pictureBoxObject.TabIndex = 3;
             this.pictureBoxObject.TabStop = false;
             // 
-            // buttonUpgradePlanet
+            // buttonUpgrade
             // 
-            this.buttonUpgradePlanet.BaseColor = System.Drawing.SystemColors.Control;
-            this.buttonUpgradePlanet.HighlightColor = System.Drawing.Color.Khaki;
-            this.buttonUpgradePlanet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpgradePlanet.Location = new System.Drawing.Point(15, 402);
-            this.buttonUpgradePlanet.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonUpgradePlanet.Name = "buttonUpgradePlanet";
-            this.buttonUpgradePlanet.Size = new System.Drawing.Size(122, 38);
-            this.buttonUpgradePlanet.TabIndex = 22;
-            this.buttonUpgradePlanet.Text = "Upgrade planet";
-            this.buttonUpgradePlanet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonUpgradePlanet.UseVisualStyleBackColor = false;
-            this.buttonUpgradePlanet.Click += new System.EventHandler(this.buttonUpgradePlanet_Click);
-            // 
-            // buttonUpgradeShip
-            // 
-            this.buttonUpgradeShip.BaseColor = System.Drawing.SystemColors.Control;
-            this.buttonUpgradeShip.HighlightColor = System.Drawing.Color.Khaki;
-            this.buttonUpgradeShip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUpgradeShip.Location = new System.Drawing.Point(15, 354);
-            this.buttonUpgradeShip.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonUpgradeShip.Name = "buttonUpgradeShip";
-            this.buttonUpgradeShip.Size = new System.Drawing.Size(122, 38);
-            this.buttonUpgradeShip.TabIndex = 23;
-            this.buttonUpgradeShip.Text = "Upgrade ship";
-            this.buttonUpgradeShip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonUpgradeShip.UseVisualStyleBackColor = false;
-            this.buttonUpgradeShip.Click += new System.EventHandler(this.buttonUpgradeShip_Click);
+            this.buttonUpgrade.BaseColor = System.Drawing.SystemColors.Control;
+            this.buttonUpgrade.HighlightColor = System.Drawing.Color.Khaki;
+            this.buttonUpgrade.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonUpgrade.Location = new System.Drawing.Point(164, 12);
+            this.buttonUpgrade.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonUpgrade.Name = "buttonUpgrade";
+            this.buttonUpgrade.Size = new System.Drawing.Size(140, 23);
+            this.buttonUpgrade.TabIndex = 32;
+            this.buttonUpgrade.Text = "Upgrade";
+            this.buttonUpgrade.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonUpgrade.UseVisualStyleBackColor = false;
+            this.buttonUpgrade.Click += new System.EventHandler(this.buttonUpgrade_Click);
             // 
             // buttonBuildNewShip
             // 
             this.buttonBuildNewShip.BaseColor = System.Drawing.SystemColors.Control;
             this.buttonBuildNewShip.HighlightColor = System.Drawing.Color.Khaki;
             this.buttonBuildNewShip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBuildNewShip.Location = new System.Drawing.Point(15, 306);
+            this.buttonBuildNewShip.Location = new System.Drawing.Point(20, 12);
             this.buttonBuildNewShip.Margin = new System.Windows.Forms.Padding(5);
             this.buttonBuildNewShip.Name = "buttonBuildNewShip";
-            this.buttonBuildNewShip.Size = new System.Drawing.Size(122, 38);
+            this.buttonBuildNewShip.Size = new System.Drawing.Size(140, 23);
             this.buttonBuildNewShip.TabIndex = 24;
             this.buttonBuildNewShip.Text = "Build new ship";
             this.buttonBuildNewShip.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -196,7 +180,7 @@
             this.groupBoxComponents.Location = new System.Drawing.Point(325, 12);
             this.groupBoxComponents.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.groupBoxComponents.Name = "groupBoxComponents";
-            this.groupBoxComponents.Size = new System.Drawing.Size(200, 428);
+            this.groupBoxComponents.Size = new System.Drawing.Size(200, 579);
             this.groupBoxComponents.TabIndex = 25;
             this.groupBoxComponents.TabStop = false;
             this.groupBoxComponents.Text = "Add Components";
@@ -205,7 +189,7 @@
             // 
             this.flowLayoutPanel.Location = new System.Drawing.Point(6, 20);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(188, 402);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(188, 553);
             this.flowLayoutPanel.TabIndex = 0;
             // 
             // groupBoxTarget
@@ -217,7 +201,7 @@
             this.groupBoxTarget.Location = new System.Drawing.Point(539, 49);
             this.groupBoxTarget.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.groupBoxTarget.Name = "groupBoxTarget";
-            this.groupBoxTarget.Size = new System.Drawing.Size(300, 286);
+            this.groupBoxTarget.Size = new System.Drawing.Size(298, 447);
             this.groupBoxTarget.TabIndex = 26;
             this.groupBoxTarget.TabStop = false;
             this.groupBoxTarget.Text = "Target";
@@ -226,11 +210,11 @@
             // 
             this.componentsTarget.BuildScreen = true;
             this.componentsTarget.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.componentsTarget.Location = new System.Drawing.Point(25, 60);
+            this.componentsTarget.Location = new System.Drawing.Point(7, 53);
             this.componentsTarget.MapObject = null;
-            this.componentsTarget.Margin = new System.Windows.Forms.Padding(5);
+            this.componentsTarget.Margin = new System.Windows.Forms.Padding(0);
             this.componentsTarget.Name = "componentsTarget";
-            this.componentsTarget.Size = new System.Drawing.Size(250, 205);
+            this.componentsTarget.Size = new System.Drawing.Size(282, 385);
             this.componentsTarget.TabIndex = 6;
             // 
             // labelTargetID
@@ -266,7 +250,7 @@
             this.buttonClear.BaseColor = System.Drawing.SystemColors.Control;
             this.buttonClear.HighlightColor = System.Drawing.Color.Khaki;
             this.buttonClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonClear.Location = new System.Drawing.Point(668, 402);
+            this.buttonClear.Location = new System.Drawing.Point(668, 553);
             this.buttonClear.Margin = new System.Windows.Forms.Padding(5);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(83, 38);
@@ -291,18 +275,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 452);
+            this.ClientSize = new System.Drawing.Size(849, 600);
+            this.Controls.Add(this.buttonBuildNewShip);
+            this.Controls.Add(this.buttonUpgrade);
             this.Controls.Add(this.labelTarget);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.groupBoxTarget);
             this.Controls.Add(this.groupBoxComponents);
-            this.Controls.Add(this.buttonBuildNewShip);
-            this.Controls.Add(this.buttonUpgradeShip);
-            this.Controls.Add(this.buttonUpgradePlanet);
             this.Controls.Add(this.groupBoxFactory);
             this.Controls.Add(this.buttonBuild);
             this.Controls.Add(this.labelFactionEnergy);
             this.Controls.Add(this.labelTotalCost);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -326,21 +310,20 @@
         private System.Windows.Forms.Label labelTotalCost;
         private LcogClient.Controls.Button buttonBuild;
         private System.Windows.Forms.GroupBox groupBoxFactory;
-        private LcogClient.Controls.Button buttonUpgradePlanet;
-        private LcogClient.Controls.Button buttonUpgradeShip;
         private LcogClient.Controls.Button buttonBuildNewShip;
         private System.Windows.Forms.Label labelObjectID;
         private System.Windows.Forms.TextBox textBoxObjectName;
         private System.Windows.Forms.PictureBox pictureBoxObject;
-        private LcogClient.Controls.Components componentsFactory;
         private System.Windows.Forms.GroupBox groupBoxComponents;
         private System.Windows.Forms.GroupBox groupBoxTarget;
-        private LcogClient.Controls.Components componentsTarget;
         private System.Windows.Forms.Label labelTargetID;
         private System.Windows.Forms.TextBox textBoxTargetName;
         private System.Windows.Forms.PictureBox pictureBoxTarget;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private LcogClient.Controls.Button buttonClear;
         private System.Windows.Forms.Label labelTarget;
+        private LcogClient.Controls.Button buttonUpgrade;
+        private LcogClient.Controls.Components componentsFactory;
+        private LcogClient.Controls.Components componentsTarget;
     }
 }

@@ -18,7 +18,7 @@ namespace LcogClient.Model.Orders
         /// <summary>
         /// Ship to colonise with.
         /// </summary>
-        public Ship Ship { get; set; }
+        public Model.MapObject Ship { get; set; }
 
         #endregion
 

@@ -74,18 +74,5 @@ namespace LcogClient.Model
             }
         }
         #endregion
-
-        public Planet Clone()
-        {
-            Planet planet = new Planet();
-            planet.Name = this.Name;
-            planet.ID = this.ID;
-            planet.Image = this.Image;
-            foreach (Component component in this.Components)
-            {
-                planet.Components.Add(component);
-            }
-            return planet;
-        }
     }
 }

@@ -40,6 +40,7 @@ namespace LcogClient.Controls
         {
             Utility.LcogIO.WriteOrders(Client.Instance.Player.Orders.ToXml(), "orders" + Client.Instance.Player.ID + ".xml");
             //MessageBox.Show("Your orders have been written to file, remember to upload them on the Menu screen.", "Message    |    Lost Colonies of Guernsey");
+            ParentForm.Close();
         }
 
         /// <summary>

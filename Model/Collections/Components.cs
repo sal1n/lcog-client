@@ -8,6 +8,18 @@ namespace LcogClient.Model.Collections
     /// </summary>
     public class Components : List<Component>
     {
+        public int TotalCost
+        {
+            get
+            {
+                int sum = 0;
+                foreach (Component c in this)
+                {
+                    sum += c.Cost;
+                }
+                return sum;
+            }
+        }
         /// </summary>
         /// Returns the component for a given string name, null if it can't be found.
         /// <param name="name">Component name</param>

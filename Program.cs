@@ -13,20 +13,20 @@ namespace LcogClient
         [STAThread]
         static void Main()
         {
-            //try
-            //{
+            try
+            {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Forms.Menu());
-            //}
-            //catch (Exception ex)
-            //{
-            //    LcogClient.Utility.LcogLogger.Log(ex.Message + "\n" + ex.StackTrace + "\n");
-            //}
-            //finally
-            //{
-            //    Application.Exit();
-            //}
+            }
+            catch (Exception ex)
+            {
+                LcogClient.Utility.LcogLogger.Log(ex.Message + "\n" + ex.StackTrace + "\n");
+            }
+            finally
+            {
+                Application.Exit();
+            }
         }
     }
 }

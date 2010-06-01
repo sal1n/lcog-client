@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
+using LcogClient.Forms;
 using LcogClient.Controls;
 using LcogClient.Model;
 
@@ -13,17 +14,68 @@ namespace LcogClient.Forms
         enum Target
         {
             NewShip,
+            Upgrade,
             UpgradeShip,
             UpgradePlanet
         }
+
+        private bool isPlanet = false;
 
         private Target target;
         private Model.MapObject targetObj;
         private Model.Collections.Components newComponents;
 
+        private Image GetImage(string component)
+        {
+            Bitmap image = new Bitmap(16, 16);
+            Bitmap icon = new Bitmap(32, 32);
+
+            if (component== "factory")
+            {
+                icon = global::LcogClient.Properties.Resources.factory;
+            }
+            else if (component == "engine")
+            {
+                icon = global::LcogClient.Properties.Resources.engine;
+            }
+            else if (component == "lab")
+            {
+                icon = global::LcogClient.Properties.Resources.light_bulb;
+            }
+            else if (component == "landing craft")
+            {
+                icon = global::LcogClient.Properties.Resources.landing_craft;
+            }
+            else if (component == "beam")
+            {
+                icon = global::LcogClient.Properties.Resources.beam;
+            }
+            else if (component == "shield")
+            {
+                icon = global::LcogClient.Properties.Resources.shield;
+            }
+            else if (component == "torpedo")
+            {
+                icon = global::LcogClient.Properties.Resources.torpedo;
+            }
+            else if (component == "steel plating")
+            {
+                icon = global::LcogClient.Properties.Resources.steel_plate;
+            }
+
+            using (Graphics g = Graphics.FromImage(image))
+            {
+                g.DrawImage(icon, 0, 0, 16, 16);
+            }
+
+            return image;
+        }
+
         public Build()
         {
             InitializeComponent();
+
+            this.componentsFactory.MapObject = Client.Instance.Selected;
 
             this.labelFactionEnergy.Text = Client.Instance.Player.Energy.ToString();
             this.labelObjectID.Text = Client.Instance.Selected.ID.ToString();
@@ -36,6 +88,9 @@ namespace LcogClient.Forms
                 if (Client.Instance.Player.Tech.HasTechnologyLevel(c.Tech))
                 {
                     LcogClient.Controls.Button b = new LcogClient.Controls.Button();
+
+                    b.Image = this.GetImage(c.Name);
+                    b.ImageAlign = ContentAlignment.MiddleLeft;
                     b.Text = c.Name;
                     b.Name = c.Name;
                     b.Click += new EventHandler(componentButton_Click);
@@ -47,25 +102,6 @@ namespace LcogClient.Forms
             // build new ship by default
             this.buttonBuildNewShip_Click(this, EventArgs.Empty);
 
-            if (Client.Instance.Selected.GetType() == typeof(Ship))
-            {
-                this.buttonUpgradeShip.Visible = true;
-
-                if (Client.Instance.Map.GetPlanetAtLocation(Client.Instance.Selected.Location) != null)
-                {
-                    this.buttonUpgradePlanet.Visible = true;
-                }
-                else
-                {
-                    this.buttonUpgradePlanet.Visible = false;
-                }
-            }
-
-            if (Client.Instance.Selected.GetType() == typeof(Planet))
-            {
-                this.buttonUpgradePlanet.Visible = true;
-                this.buttonUpgradeShip.Visible = false;
-            }
         }
 
         void componentButton_Click(object sender, EventArgs e)
@@ -84,7 +120,7 @@ namespace LcogClient.Forms
         {
             int sum = 0;
 
-            if (this.target == Target.UpgradePlanet || this.target == Target.UpgradeShip)
+            if (this.target == Target.Upgrade)
             {
                 foreach (Model.Component c in this.newComponents)
                 {
@@ -111,17 +147,15 @@ namespace LcogClient.Forms
                 this.textBoxTargetName.Text = "New ship";
                 this.pictureBoxTarget.Image = global::LcogClient.Properties.Resources.ship;
                 this.componentsTarget.MapObject = this.targetObj;
-                this.buttonBuildNewShip.BackColor = Color.Khaki;
-                this.buttonUpgradePlanet.BackColor = SystemColors.Control;
-                this.buttonUpgradeShip.BackColor = SystemColors.Control;
-            }
-            else if (this.target == Target.UpgradePlanet)
-            {
-                this.labelTarget.Text = "Upgrade planet";
             }
             else
             {
-                this.labelTarget.Text = "Upgrade ship";
+                this.labelTarget.Text = "Upgrade";
+                this.labelTargetID.Visible = true;
+                this.labelTargetID.Text = this.targetObj.ID.ToString();
+                this.textBoxTargetName.Text = this.targetObj.Name;
+                this.pictureBoxTarget.Image = this.targetObj.Image;
+                this.componentsTarget.MapObject = this.targetObj;
             }
             this.CalculateCost();
             this.componentsTarget.UpdateView(this, EventArgs.Empty);
@@ -134,31 +168,38 @@ namespace LcogClient.Forms
             this.UpdateView();
         }
 
-        private void buttonUpgradeShip_Click(object sender, EventArgs e)
+        private void buttonUpgrade_Click(object sender, EventArgs e)
         {
-            this.target = Target.UpgradeShip;
-            this.newComponents = new LcogClient.Model.Collections.Components();
-            Ship s = (Ship)Client.Instance.Selected;
-            this.targetObj = s.Clone();
-            this.labelTargetID.Visible = true;
-            this.labelTargetID.Text = this.targetObj.ID.ToString();
-            this.textBoxTargetName.Text = this.targetObj.Name;
-            this.pictureBoxTarget.Image = this.targetObj.Image;
-            this.componentsTarget.MapObject = this.targetObj;
-            this.UpdateView();
-        }
+            this.target = Target.Upgrade;
 
-        private void buttonUpgradePlanet_Click(object sender, EventArgs e)
-        {
-            this.target = Target.UpgradePlanet;
-            this.newComponents = new LcogClient.Model.Collections.Components();
-            Planet p = Client.Instance.Map.GetPlanetAtLocation(Client.Instance.Selected.Location);
-            this.targetObj = p.Clone();
-            this.labelTargetID.Visible = true;
-            this.labelTargetID.Text = this.targetObj.ID.ToString();
-            this.textBoxTargetName.Text = this.targetObj.Name;
-            this.pictureBoxTarget.Image = this.targetObj.Image;
-            this.componentsTarget.MapObject = this.targetObj;
+            if (Client.Instance.Map.GetAllOthersAtLocation(Client.Instance.Selected).Count > 0)
+            {
+                Select form = new Select("Select object to upgrade", Client.Instance.Map.GetAllAtLocation(Client.Instance.Selected.Location));
+                form.ShowDialog();
+                this.newComponents = new LcogClient.Model.Collections.Components();
+                this.targetObj = Client.Instance.Target.Clone();
+                if (Client.Instance.Target.GetType() == typeof(Planet))
+                {
+                    this.isPlanet = true;
+                }
+                else
+                {
+                    this.isPlanet = false;
+                }
+            }
+            else
+            {
+                this.newComponents = new LcogClient.Model.Collections.Components();
+                this.targetObj = Client.Instance.Selected.Clone();
+                if (Client.Instance.Selected.GetType() == typeof(Planet))
+                {
+                    this.isPlanet = true;
+                }
+                else
+                {
+                    this.isPlanet = false;
+                }
+            }
             this.UpdateView();
         }
 
@@ -171,10 +212,10 @@ namespace LcogClient.Forms
             }
             else
             {
-                Model.Orders.Upgrade upgrade = new LcogClient.Model.Orders.Upgrade(Client.Instance.Selected, this.targetObj, this.newComponents);
+                Model.Orders.Upgrade upgrade = new LcogClient.Model.Orders.Upgrade(Client.Instance.Selected, this.targetObj, this.newComponents, this.isPlanet);
                 Client.Instance.Player.Orders.AddUpgradeOrder(upgrade);
             }
-            Client.Instance.UpdateView();
+            //Client.Instance.UpdateView();
             this.Close();
         }
 
@@ -182,16 +223,19 @@ namespace LcogClient.Forms
         {
             if (this.target == Target.NewShip)
             {
-                this.buttonBuildNewShip_Click(this, EventArgs.Empty);
-            }
-            else if (this.target == Target.UpgradeShip)
-            {
-                this.buttonUpgradeShip_Click(this, EventArgs.Empty);
+                this.targetObj = new Ship();
             }
             else
             {
-                this.buttonUpgradePlanet_Click(this, EventArgs.Empty);
+                this.newComponents = new LcogClient.Model.Collections.Components();
+                this.targetObj = Client.Instance.Target.Clone();
             }
+            this.UpdateView();
+        }
+
+        private void components2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

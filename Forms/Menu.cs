@@ -29,6 +29,13 @@ namespace LcogClient.Forms
             this.workerThread.ProgressChanged += new ProgressChangedEventHandler(workerThread_ProgressChanged);
             this.workerThread.WorkerReportsProgress = true;
             this.UpdateView();
+
+            this.textBoxFactionId.Text = LcogConfig.FactionID.ToString();
+            this.textBoxPassword.Text = LcogConfig.Password.ToString();
+            ToolTip tp = new ToolTip();
+            tp.ToolTipTitle = "Update Settings";
+            tp.SetToolTip(this.buttonUpdate, "Save the above settings - note that security may stop this working on Windows Vista/7.");
+            
         }
 
         void workerThread_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -40,8 +47,9 @@ namespace LcogClient.Forms
         void workerThread_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             this.downloading = false;
-            this.listView.Items.Insert(0, new ListViewItem("Playerfile updated"));
-            this.listView.Items.Insert(0, new ListViewItem("Report downloaded " + DateTime.Now.ToString()));
+            this.listView.Items.Add(new ListViewItem("Playerfile updated"));
+            this.listView.Items.Add(new ListViewItem("Report downloaded " + DateTime.Now.ToString()));
+            this.listView.Items[this.listView.Items.Count - 1].EnsureVisible();
             LcogIO.UnzipReport();
             this.progressBar.Value = 0;
             this.UpdateView();
@@ -59,7 +67,7 @@ namespace LcogClient.Forms
             {
                 try
                 {
-                    string url = LcogConfig.ReportURL + "Report" + LcogConfig.FactionID + ".zip";
+                    string url = LcogConfig.ReportURL + "report" + LcogConfig.FactionID + ".zip";
 
                     request = (HttpWebRequest)WebRequest.Create(url);
                     request.Credentials = CredentialCache.DefaultCredentials;
@@ -68,7 +76,7 @@ namespace LcogClient.Forms
                     Int64 fileSize = response.ContentLength;
 
                     this.responseStream = webClient.OpenRead(url);
-                    this.fileStream = new FileStream("Report" + LcogConfig.FactionID + ".zip", FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
+                    this.fileStream = new FileStream("report" + LcogConfig.FactionID + ".zip", FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
 
                     int byteSize = 0;
 
@@ -102,24 +110,26 @@ namespace LcogClient.Forms
             {
                 if (LcogIO.UploadOrders())
                 {
-                    this.listView.Items.Insert(0, new ListViewItem("Order Upload SUCCESS! " + DateTime.Now.ToString()));
+                    this.listView.Items.Add(new ListViewItem("Order Upload SUCCESS! " + DateTime.Now.ToString()));
                 }
                 else
                 {
-                    this.listView.Items.Insert(0, new ListViewItem("Order Upload FAILED! " + DateTime.Now.ToString()));
+                    this.listView.Items.Add(new ListViewItem("Order Upload FAILED! " + DateTime.Now.ToString()));
                 }
+                this.listView.Items[this.listView.Items.Count - 1].EnsureVisible();
             }
             catch
             {
-                this.listView.Items.Insert(0, new ListViewItem("orders" + LcogConfig.FactionID + ".xml not found!"));
+                this.listView.Items.Add(new ListViewItem("orders" + LcogConfig.FactionID + ".xml not found!"));
+                this.listView.Items[this.listView.Items.Count - 1].EnsureVisible();
             }
         }
 
         void buttonDownload_Click(object sender, EventArgs e)
         {
             ListViewItem item = new ListViewItem("Contacting the host server...");
-            this.listView.Items.Insert(0, item);
-
+            this.listView.Items.Add(item);
+            this.listView.Items[this.listView.Items.Count - 1].EnsureVisible();
             if (!this.downloading)
             {
                 this.downloading = true;
@@ -134,8 +144,8 @@ namespace LcogClient.Forms
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
-            ListViewItem item = new ListViewItem("Let's play Global Thermonuclear War...");
-            this.listView.Items.Insert(0, item);
+
+
             Play form = new Play();
             // hide this 
             this.Hide();
@@ -144,13 +154,14 @@ namespace LcogClient.Forms
             // play form has closed so show this again
             this.Show();
             ListViewItem item2 = new ListViewItem("Remember to upload any saved orders!");
-            this.listView.Items.Insert(0, item2);
+            this.listView.Items.Add(item2);
+            this.listView.Items[this.listView.Items.Count - 1].EnsureVisible();
         }
 
         private void buttonVCR_Click(object sender, EventArgs e)
         {
-            VCR form = new VCR();
-            //VCRUniversal form = new VCRUniversal();
+            //VCR form = new VCR();
+            VCRUniversal form = new VCRUniversal();
 
             // hide this 
             this.Hide();
@@ -170,23 +181,20 @@ namespace LcogClient.Forms
             catch
             {
                 ListViewItem item = new ListViewItem("playerfile.xml not found!");
-                this.listView.Items.Insert(0, item);
+                this.listView.Items.Add(item);
                // this.labelGameName.Text = "playerfile.xml not found!";
             }
 
             try
             {
                 LcogIO.LoadReport("report" + LcogConfig.FactionID + ".xml");
-                //this.labelName.Text = LcogClient.Instance.Player.Faction.Name + " [" + LcogClient.Instance.Player.Faction.ID.ToString() + "]";
-               // this.labelTurn.Text = LcogClient.Instance.Player.Turn.ToString();
-               // this.buttonMessages.Text = "Messages (" + LcogClient.Instance.Player.Messages.Count.ToString() + ")";
             }
             catch
             {
-                ListViewItem item = new ListViewItem("report for faction " + LcogConfig.FactionID.ToString() + " not found!");
-                this.listView.Items.Insert(0, item);
+                ListViewItem item = new ListViewItem("Report for faction " + LcogConfig.FactionID.ToString() + " not found!");
+                this.listView.Items.Add(item);
+                this.listView.Items[this.listView.Items.Count - 1].EnsureVisible();
             }
-
             try
             {
                 XmlDocument xml = LcogIO.LoadXml("orders" + LcogConfig.FactionID + ".xml");
@@ -198,28 +206,35 @@ namespace LcogClient.Forms
                 //this.labelOrders.Text = "No order file found!";
             }
 
-            int count = 0;
-            FileInfo filei = new FileInfo(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            DirectoryInfo directory = filei.Directory;
-            foreach (FileInfo file in directory.GetFiles())
+            try
             {
-                if (file.Extension == ".avi")
+                int count = 0;
+                FileInfo filei = new FileInfo(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                DirectoryInfo directory = filei.Directory;
+                foreach (FileInfo file in directory.GetFiles())
                 {
-                    if (this.GetTurn(file.Name.Substring(0, file.Name.Length - 4)) == Client.Instance.Player.Turn)
+                    if (file.Extension == ".avi")
                     {
-                        count++;
+                        if (this.GetTurn(file.Name.Substring(0, file.Name.Length - 4)) == Client.Instance.Player.Turn)
+                        {
+                            count++;
+                        }
                     }
                 }
+                if (count > 0)
+                {
+                    this.buttonVCR.ForeColor = Color.Red;
+                    this.buttonVCR.Text = "VCR (" + count.ToString() + ")";
+                }
+                else
+                {
+                    this.buttonVCR.ForeColor = Color.Black;
+                    this.buttonVCR.Text = "VCR";
+                }
             }
-            if (count > 0)
+            catch (Exception ex)
             {
-                this.buttonVCR.ForeColor = Color.Red;
-                this.buttonVCR.Text = "VCR (" + count.ToString() + ")";
-            }
-            else
-            {
-                this.buttonVCR.ForeColor = Color.Black;
-                this.buttonVCR.Text = "VCR";
+                string tep = "tep";
             }
         }
 
@@ -236,6 +251,12 @@ namespace LcogClient.Forms
             {
                 return 0;
             }
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            LcogConfig.FactionID = this.textBoxFactionId.Text;
+            LcogConfig.Password = this.textBoxPassword.Text;
         }
     }
 }

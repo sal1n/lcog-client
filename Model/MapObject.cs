@@ -42,6 +42,8 @@ namespace LcogClient.Model
         /// </summary>
         public Components Components { get; set; }
 
+        public int MaxMove { get; set; }
+
         #endregion
 
         #region Constructors
@@ -67,6 +69,18 @@ namespace LcogClient.Model
         public bool HasMoveOrder()
         {
             if (Client.Instance.Player.Orders.GetMoveOrder(this) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool HasColoniseOrder()
+        {
+            if (Client.Instance.Player.Orders.GetColoniseOrder(this) != null)
             {
                 return true;
             }
@@ -123,5 +137,18 @@ namespace LcogClient.Model
         //        return false;
         //    }
         //}
+
+        public MapObject Clone()
+        {
+            MapObject obj = new MapObject();
+            obj.Name = this.Name;
+            obj.ID = this.ID;
+            obj.Image = this.Image;
+            foreach (Component component in this.Components)
+            {
+                obj.Components.Add(component);
+            }
+            return obj;
+        }
     }
 }

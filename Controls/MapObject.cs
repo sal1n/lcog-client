@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 using LcogClient.Forms;
 using LcogClient.Model;
+using LcogClient.Model.Orders;
 
 namespace LcogClient.Controls
 {
@@ -12,6 +13,17 @@ namespace LcogClient.Controls
         public MapObject() : base()
         {
             InitializeComponent();
+            this.textBoxObjectName.TextChanged += new EventHandler(textBoxObjectName_TextChanged);
+        }
+
+        void textBoxObjectName_TextChanged(object sender, EventArgs e)
+        {
+            if (Client.Instance.Selected.Name != this.textBoxObjectName.Text)
+            {
+                Rename order = new Rename(Client.Instance.Selected, this.textBoxObjectName.Text);
+                Client.Instance.Player.Orders.AddRenameOrder(order);
+                Client.Instance.Selected.Name = this.textBoxObjectName.Text;
+            }
         }
 
         /// <summary>
@@ -21,147 +33,89 @@ namespace LcogClient.Controls
         {
             Model.MapObject obj = Client.Instance.Selected;
 
-                this.pictureBoxObject.Image = obj.Image;
-                this.textBoxObjectName.Text = obj.Name;
-                this.labelObjectID.Text = obj.ID.ToString();
+            this.pictureBoxObject.Image = obj.Image;
+            this.textBoxObjectName.Text = obj.Name;
+            this.labelObjectID.Text = obj.ID.ToString();
 
-                if (obj.Faction != null)
-                {
-                    this.labelFactionName.Text = obj.Faction.Name;
-                    this.componentsControl.Visible = true;
-                }
-                else
-                {
-                    this.labelFactionName.Text = "Unclaimed";
-                    this.componentsControl.Visible = false;
-                }
+            if (obj.Faction != null)
+            {
+                this.labelFactionName.Text = obj.Faction.Name;
+                this.componentsControl.Visible = true;
+            }
+            else
+            {
+                this.labelFactionName.Text = "Unclaimed";
+                this.componentsControl.Visible = false;
+            }
 
-                if (obj.GetType() == typeof(Planet))
-                {
-                    Planet p = (Planet)obj;
-                    this.pictureBoxEnergy.Image = global::LcogClient.Properties.Resources.planet_energy;
-                    this.labelEnergy.Text = p.Energy.ToString();
-                    this.labelColonise.Visible = false;
-                    this.buttonCancelColonise.Visible = false;
-                }
-                else
-                {
-                    this.pictureBoxEnergy.Image = global::LcogClient.Properties.Resources.damage;
-                    Ship s = (Ship)obj;
-                    this.labelEnergy.Text = s.Damage.ToString();
-                }
+            if (Client.Instance.Map.GetAllOthersAtLocation(obj).Count > 0)
+            {
+                int planets = 0;
+                int ships = 0;
 
-                if (obj.Components.GetComponentByName("factory") != null)
+                foreach (Model.MapObject mo in Client.Instance.Map.GetAllOthersAtLocation(obj))
                 {
-                    this.buttonBuild.Visible = true;
-                }
-                else
-                {
-                    this.buttonBuild.Visible = false;
-                }
-
-                if (obj.Components.GetComponentByName("landing craft") != null)
-                {
-                    this.buttonColonise.Visible = true;
-                }
-                else
-                {
-                    this.buttonColonise.Visible = false;
-                }
-
-                if (obj.HasBuildOrder())
-                {
-                    this.labelBuild.Visible = true;
-                    this.labelBuild.Text = "Building a new ship";
-                    this.buttonCancelBuild.Visible = true;
-                }
-                else
-                {
-                    this.labelBuild.Visible = false;
-                    this.buttonCancelBuild.Visible = false;
-                }
-
-                if (obj.HasUpgradeOrder())
-                {
-                    this.labelBuild.Visible = true;
-                    this.labelBuild.Text = "Upgrade " + Client.Instance.Player.Orders.GetUpgradeOrder(obj).Target.Name;
-                    this.buttonCancelBuild.Visible = true;
-                }
-
-
-                if (obj.GetType() == typeof(Ship))
-                {
-                    Ship s = (Ship)obj;
-
-                    Planet p = Client.Instance.Map.GetPlanetAtLocation(s.Location);
-
-                    if (p != null && p.Faction != obj.Faction)
+                    if (mo.GetType() == typeof(Planet))
                     {
-                        this.buttonColonise.Visible = true;
+                        planets += 1;
                     }
                     else
                     {
-                        this.buttonColonise.Visible = false;
+                        ships += 1;
                     }
-                    if (s.HasColoniseOrder())
+                }
+                this.buttonOthers.Visible = true;
+                string message = "";
+                if (planets > 0)
+                {
+                    message += "1 planet";
+                }
+                if (ships > 0)
+                {
+                    if (planets > 0)
                     {
-                        this.labelColonise.Visible = true;
-                        this.labelColonise.Text = "Colonise " + Client.Instance.Map.GetPlanetAtLocation(s.Location).Name;
-                        this.buttonCancelColonise.Visible = true;
+                        message += " and ";
+                    }
+                    if (ships > 1)
+                    {
+                        message += ships.ToString() + " ships";
                     }
                     else
                     {
-                        this.labelColonise.Visible = false;
-                        this.buttonCancelColonise.Visible = false;
+                        message += ships.ToString() + " ship";
                     }
                 }
-                if (obj.HasMoveOrder())
+                message += " at this location - View";
+                this.buttonOthers.Text = message;
+                if (ships == 0 && planets == 0)
                 {
-                    this.labelMove.Visible = true;
-                    this.buttonCancelMove.Visible = true;
-                    this.labelMove.Text = "Move to " + Client.Instance.Map.GetPlanetAtLocation(Client.Instance.Player.Orders.GetMoveOrder(obj).Waypoint).Name;
+                    this.buttonOthers.Visible = false;
                 }
-                else if (obj.HasInterceptOrder())
-                {
-                    this.labelMove.Visible = true;
-                    this.buttonCancelMove.Visible = true;
-                    this.labelMove.Text = "Intercept " + Client.Instance.Player.Orders.GetInterceptOrder(obj).Target.Name;
-                }
-                else
-                {
-                    this.labelMove.Visible = false;
-                    this.buttonCancelMove.Visible = false;
-                }
+            }
+            else
+            {
+                this.buttonOthers.Visible = false;
+            }
+
+            if (obj.GetType() == typeof(Planet))
+            {
+                Planet p = (Planet)obj;
+                this.pictureBoxEnergy.Image = global::LcogClient.Properties.Resources.planet_energy;
+                this.labelEnergy.Text = p.Energy.ToString();
+            }
+            else
+            {
+                this.pictureBoxEnergy.Image = global::LcogClient.Properties.Resources.damage;
+                Ship s = (Ship)obj;
+                this.labelEnergy.Text = s.Damage.ToString();
+            }
         }
 
-        private void buttonBuild_Click(object sender, EventArgs e)
+        private void buttonOthers_Click(object sender, EventArgs e)
         {
-            Forms.Build form = new Forms.Build();
+            Forms.Select form = new Select("Select object", Client.Instance.Map.GetAllOthersAtLocation(Client.Instance.Selected));
             form.ShowDialog();
-        }
-
-        private void buttonColonise_Click(object sender, EventArgs e)
-        {
-            Model.Orders.Colonise colonise = new Model.Orders.Colonise((Ship)Client.Instance.Selected);
-            Client.Instance.Player.Orders.AddColoniseOrder(colonise);
-            Client.Instance.UpdateView();
-        }
-
-        private void buttonCancelBuild_Click(object sender, EventArgs e)
-        {
-            Client.Instance.Player.Orders.CancelBuild(Client.Instance.Selected);
-            Client.Instance.UpdateView();
-        }
-
-        private void buttonCancelMove_Click(object sender, EventArgs e)
-        {
-            Client.Instance.Player.Orders.CancelMove((Ship)Client.Instance.Selected);
-            Client.Instance.UpdateView();
-        }
-
-        private void buttonCancelColonise_Click(object sender, EventArgs e)
-        {
-            Client.Instance.Player.Orders.CancelColonise((Ship)Client.Instance.Selected);
+            Client.Instance.Selected = Client.Instance.Target;
             Client.Instance.UpdateView();
         }
     }

@@ -47,6 +47,11 @@ namespace LcogClient.Model.Orders
         }
         #endregion
 
+        public override string ToString()
+        {
+            return "Rename | " + this.Obj.ID.ToString() + " renamed to " + this.Name;
+        }
+
         /// <summary>
         /// Todo:  replace this with proper object xml serialization, this is rubbish.
         /// </summary>

@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
+using LcogClient.Controls;
 using LcogClient.Model;
+using LcogClient.Utility;
 
 namespace LcogClient.Controls
 {
@@ -30,12 +33,8 @@ namespace LcogClient.Controls
                 this.MapObject = Client.Instance.Selected;
             }
 
-            foreach (Model.Component component in this.MapObject.Components.GetDistinctComponents())
+            foreach (LcogClient.Controls.Base c in LcogComponentFactory.GetComponentControl(this.MapObject, this.BuildScreen))
             {
-                Label c = new Label();
-                c.Text = component.Name + " [" + this.MapObject.Components.GetComponentCount(component.Name).ToString() + "]";
-                c.TextAlign = ContentAlignment.MiddleLeft;
-                c.Width = 117;
                 this.flowLayoutPanel.Controls.Add(c);
             }
         }

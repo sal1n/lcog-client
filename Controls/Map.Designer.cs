@@ -36,6 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.DoubleBuffered = true;
+            this.MaximumSize = new System.Drawing.Size(800, 800);
             this.Name = "Map";
             this.ResumeLayout(false);
 

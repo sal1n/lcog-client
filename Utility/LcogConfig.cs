@@ -11,12 +11,26 @@ namespace LcogClient.Utility
             {
                 return ConfigurationManager.AppSettings["factionID"];
             }
+            set
+            {
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings["factionID"].Value = value;
+                config.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");  
+            }
         }
         public static string Password
         {
             get
             {
                 return ConfigurationManager.AppSettings["password"];
+            }
+            set
+            {
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings["password"].Value = value;
+                config.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");  
             }
         }
         public static string ReportURL

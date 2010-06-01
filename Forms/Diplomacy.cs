@@ -11,6 +11,11 @@ namespace LcogClient.Forms
         {
             InitializeComponent();
 
+            Model.Client.Instance.Factions.Sort(delegate(Model.Faction f1, Model.Faction f2)
+            {
+                return f1.Score.CompareTo(f2.Score);
+            });
+
             foreach (Model.Faction faction in Model.Client.Instance.Factions)
             {
                 if (faction.ID != Model.Client.Instance.Player.Faction.ID)

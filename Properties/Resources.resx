@@ -133,6 +133,18 @@
   <data name="battleship32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\battleship32x32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="beam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beam.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beam_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beam_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blaster" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blaster.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blaster_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blaster_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="build" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\build.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,8 +172,29 @@
   <data name="energy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\energy_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="engine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\engine.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="engine_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\engine_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enhanced_beam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enhanced_beam.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enhanced_beam_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enhanced_beam_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enhanced_shield" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enhanced_shield.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enhanced_shield_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enhanced_shield_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="faction_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\faction_background.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="factory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\factory.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="forward" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\forward.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,8 +208,29 @@
   <data name="hostile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hostile_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ion_drive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ion_drive.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ion_drive_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ion_drive_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="landing_craft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\landing_craft.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="lcog" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lcog.ico;System.Drawing.Icon, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_bulb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\light_bulb.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="light_bulb_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\light_bulb_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="long_range_beam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\long_range_beam.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="long_range_beam_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\long_range_beam_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="messages" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\messages_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,6 +247,18 @@
   <data name="planet_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\planet_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="plasma_torpedo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plasma_torpedo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plasma_torpedo_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plasma_torpedo_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plasteel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plasteel.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plasteel_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plasteel_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="play" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\play.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,11 +268,32 @@
   <data name="scout32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\scout32x32.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="shield" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shield.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shield_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shield_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ship" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ship2_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ship_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ship_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="star" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\star.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="steel_plate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\steel_plate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="steel_plate_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\steel_plate_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="torpedo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\torpedo.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="torpedo_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\torpedo_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="transfer_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\transfer_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
