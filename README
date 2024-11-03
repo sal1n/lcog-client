@@ -27,5 +27,5 @@ Implements entire 2.0 ruleset (game host as at April 2010).
 5.  Maintain state, so orders lost when client closed.  Need to reload the order xml file.
 
 --------------------------------------------
-Steve Andrews [http://salin.org/lcog-client]
+Steve
 18/05/2010
